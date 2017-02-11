@@ -1,6 +1,6 @@
 # Left rotation
 
-이건 좀 단순한 문제인데, success rate가 낮길래 그냥 풀어보았다.
+이건 좀 단순한 문제인데, success rate가 100%가 아니길래 그냥 풀어보았다.
 
 ### 문제
 
