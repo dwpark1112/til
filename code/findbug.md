@@ -13,4 +13,6 @@ valufOf 메소드를 사용하는 것은 생성자를 사용하는 것보다 3.5
 `new Double(d).intValue()` 이렇게 쓰게 되면, 생성하자마자 primitive type으로 형변환이 일어나니깐 그냥 direct로 primitive type으로 형변환을 하라는 것 `(int) d`
 
 
+## Boxing/unboxing to parse a primitive
 
+`Integer.valueOf(String s)` 이렇게 사용하면 객체를 만드는 거니깐, 객체를 만든 로직에서 단순하게 원하는게 primitive type이라면 `Integer.valueOf(String s)` 이걸 쓰라는 것, 대충 IDE로 개발할 때는 그냥 넘어갔는데, 자세히 보면 return 타입이 다르다. Integer.valueOf의 경우 primitive type인 int를 반환한다.
