@@ -17,13 +17,11 @@ Mongodb는 다량의 데이터를 쓰기 위한 연산을 제공하는데, 이�
 
 - 다량의 로그데이터를 실시간으로 데이터베이스에 적재하는 것이 아니라, 일정 단위로 모아서 한번에 밀어 넣을 때
 - mongodb는 relation이 없다. 따라서 데이터 모델링을 할 때 반정규화를 하는데, 반정규화 시에는 잘 변하지 않는 데이터라면 그 자체를 document에 포함시켜버린다. 만일 그 잘 변하지 않는 데이터가 변해야 한다면?? 수천개의 document를 업데이트 해야 한다면? 
-- 어떤 서비스에 사용자 그룹이 있는데, 그 사용자 그룹의 일부 인원들을 한번에 상위 권한으로 조정한다면? loop로 여러번 update를 실행하는 것이 아니라 bulk operation으로 한번에 업데이트 하는 거다. 
+- 어떤 서비스에 사용자 그룹이 있는데, 그 사용자 그룹의 일부 인원들을 한번에 상위 권한으로 조정한다면? loop로 여러번 update를 실행하는 것이 아니라 bulk operation으로 한번에 업데이트 하는 것
 
-## How
 
-무엇인지, 왜 쓰는지 알고나면 나머지는 다 '어떻게'이다. 
+## Ordered vs Unordered Operations
 
-**Ordered vs Unordered Operations**
 
 Bulk operation은 ordered 또는 unordered로 연산을 수행할 수 있는데, ordered로 연산을 수행하면, 단어가 주는 뉘앙스처럼 순차적으로 데이터를 저장한다. unordered라면 그냥 막 던지나 보다.
 
@@ -31,20 +29,21 @@ ordered가 마냥 좋은 것은 아닌 것이, ordered로 bulk operation 쓰기 
 
 하여간, 프레임에 따라 ordered, unordered 잘 가려서 써야 한다는 것인데, 아마 대부분의 경우 unordered로 처리할 것 같다. ordered로 처리하면 exception 처리를 잘해줘야 할 듯하다.
 
-**Bulk method**
+## Bulk method
 
-step
-1. bulk operation을 생성한다.
-2. 지원되는 bulk 메소드를 상황에 맞게 조합해서 쓴다.
+**Step**
+
+1. Bulk Operation을 생성한다.
+2. 지원되는 Bulk method를 상황에 맞게 조합해서 쓴다.
    * insert(), find, find.upsert, update, updateOne
    * replaceOne, remove, removeOne 
 3. execute 메소드로 앞선 연산들을 실행한다. 
 > 주의사항: 한번 execute를 실행하면, 재 사용할 수 없고, 반드시 다시 스텝을 실행해야 한다.
 
-읽어보길 잘했다. 아마 난 bulk operation을 생성하고, 필요에 따라 연산 조합을 실행한 뒤, execute를 재사용 했을 것이다.
+읽어보길 잘했다. 아마 난 Bulk Operation을 생성하고, 필요에 따라 연산 조합을 실행한 뒤, execute를 재사용 했을 것이다.
 
 
-**Bulk Execution Mechanics**
+## Bulk Execution Mechanics
 
 여기서 재미있는게 나오는데, 성능으로 치자면 unordered가 더 좋을 것 같은 힌트가 나온다.
 
@@ -62,7 +61,7 @@ bulk 실행시 연산을 묶어서 처리하는데, 이때 하나의 연산 그�
 
 ## Practice
 
-Spring-data-mongodb를 쓸 경우, Bulk operation은 1.9.0.REALEASE부터 사용할 수 있다.
+Spring-data-mongodb를 사용한다면, Bulk operation은 1.9.0.REALEASE부터 사용할 수 있다.
 
 ```java
 @Override 
