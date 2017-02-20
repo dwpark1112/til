@@ -9,3 +9,10 @@ git rm -r --cached [removetarget]
 git commit -m 'remove ...'
 git push origin master
 ```
+
+**이전 커밋에 tag붙이기**
+
+```
+git tag [tag_name] [commit]
+git push origin --tags
+```
