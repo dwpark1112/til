@@ -34,3 +34,18 @@ Spark의  old generation region에 대한 GC옵션 <https://databricks.com/blog/
 ```
 
 이 정도 포스팅을 올릴 수 있을 정도로 학습을 해야 하는데, 고민이다. <http://logonjava.blogspot.kr/2015/08/java-g1-gc-full-gc.html>
+
+## GC log 중 -XX:+PrintTenuringDistribution
+
+```
+Desired survivor size 75497472 bytes, new threshold 15 (max 15)
+- age   1:   19321624 bytes,   19321624 total
+- age   2:      79376 bytes,   19401000 total
+- age   3:    2904256 bytes,   22305256 total
+```
+
+라인별 설명
+
+- Desired survivor size: "To" survivor 공간 사용률로서 75Mb, old generation으로 이동하기 전에 객체가 young 에 머무는 GC의 수는 15, max 15
+- age부터는 살아남은 것으로 세대 수를 나타낸다. total은 To survivor 공간에 22Mb가 남아있다는 것이다.
+- old로 갈 것이 없으니 안전한 상태로 볼 수 있다.
