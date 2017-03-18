@@ -35,6 +35,9 @@ Spark의  old generation region에 대한 GC옵션 <https://databricks.com/blog/
 
 이 정도 포스팅을 올릴 수 있을 정도로 학습을 해야 하는데, 고민이다. <http://logonjava.blogspot.kr/2015/08/java-g1-gc-full-gc.html>
 
+G1GC를 지금 적용할 필요는 없는데, 나중에 해본다면 아래 문서를 참고해서 적용하면 좋을 것 같다. 잘 쓰여짐
+<http://imp51.tistory.com/entry/G1-GC-Garbage-First-Garbage-Collector-Tuning>
+
 ## GC log 중 -XX:+PrintTenuringDistribution
 
 ```
