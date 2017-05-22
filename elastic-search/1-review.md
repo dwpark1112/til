@@ -115,4 +115,8 @@ Usage
 
 ## 분석기?
 
-page 84, <https://www.slideshare.net/seunghyuneom/elastic-search-52724188>
+- 검색어를 추출하기 위한 프로세스로 Tokenizer와 TokenFilter로 구성
+- 사용자가 직접 분석기를 생성하여 적용 가능
+- analyze API 제공
+- 한글 분석기로 아리랑, 은전한닢 분석기 등이 있음 (오픈소스)
+   - 카카오토픽에서 은전한닢 프로젝트 사용 중
