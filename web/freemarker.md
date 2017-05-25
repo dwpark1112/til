@@ -52,7 +52,45 @@ JLabel 없어도 되는건가? <http://haviyj.tistory.com/11>
         }
 ```
 
-## Webpack
+webpack 했더니만, `Error: Cannot find module 'webpack'` 이렇게 나온다면? `npm link webpack` 해주면 됨 
 
-모듈 빌드 도구 였던가? 7일전에 공부했는데 또 까먹었네
+제대로 된다면 아래처럼 나온다.
 
+```shell
+Hash: 102f97f2a736f72019db
+Version: webpack 2.6.0
+Time: 555ms
+                         Asset     Size  Chunks             Chunk Names
+              sample.bundle.js  2.31 kB       0  [emitted]  sample
+               index.bundle.js  2.34 kB       1  [emitted]  index
+         domain.list.bundle.js  3.44 kB       2  [emitted]  domain.list
+    domain.dmsDetail.bundle.js  5.18 kB       3  [emitted]  domain.dmsDetail
+              vendor.bundle.js     6 kB       4  [emitted]  vendor
+          sample.bundle.js.map  3.95 kB       0  [emitted]  sample
+           index.bundle.js.map     4 kB       1  [emitted]  index
+     domain.list.bundle.js.map  6.66 kB       2  [emitted]  domain.list
+domain.dmsDetail.bundle.js.map  10.6 kB       3  [emitted]  domain.dmsDetail
+          vendor.bundle.js.map  6.07 kB       4  [emitted]  vendor
+   [0] ./src/main/resources/static/js/source/modules/utils.js 1.17 kB {0} {1} {2} [built]
+   [1] ./src/main/resources/static/js/source/domain/dmsDetail.js 4.92 kB {3} [built]
+   [2] ./src/main/resources/static/js/source/domain/list.js 1.6 kB {2} [built]
+   [3] ./src/main/resources/static/js/source/index.js 427 bytes {1} [built]
+   [4] ./src/main/resources/static/js/source/sample.js 432 bytes {0} [built]
+   [5] multi ./src/main/resources/static/js/source/domain/dmsDetail.js 28 bytes {3} [built]
+   [6] multi ./src/main/resources/static/js/source/domain/list.js 28 bytes {2} [built]
+   [7] multi ./src/main/resources/static/js/source/index.js ./src/main/resources/static/js/source/modules/utils.js 40 bytes {1} [built]
+   [8] multi ./src/main/resources/static/js/source/sample.js ./src/main/resources/static/js/source/modules/utils.js 40 bytes {0} [built]
+
+```
+
+이제 만들어둔 자바스크립트를 번들링해보자
+
+## 개발 일지가 되어간다.
+
+event.stopPropagation(), event.preventDefault () 
+
+- DOM 
+  - innerHTML property: way to get the content of an element
+
+- $.ajax 부분에서 missing import 표시될 때
+  - https://stackoverflow.com/questions/38207469/webstorm-reports-a-missing-import-on-built-in-objects 
