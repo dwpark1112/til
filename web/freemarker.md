@@ -93,4 +93,27 @@ event.stopPropagation(), event.preventDefault ()
   - innerHTML property: way to get the content of an element
 
 - $.ajax 부분에서 missing import 표시될 때
-  - https://stackoverflow.com/questions/38207469/webstorm-reports-a-missing-import-on-built-in-objects 
+  - https://stackoverflow.com/questions/38207469/webstorm-reports-a-missing-import-on-built-in-objects
+
+- JQuery 가이드 <https://github.com/nhnent/fe.javascript/wiki/jQuery-%EA%B0%80%EC%9D%B4%EB%93%9C>
+
+## Promise
+
+promise 쓰면 좋을 것 같다. 특히 Ajax 호출할 때, Async 함수 순차적으로 호출할 때 등등
+
+```javascript
+new Promise( function(resolve, reject))
+Promise.resolve(function())
+```
+
+sync로만 쓸때는 Promise.resolve()로 sync와 async에서는 new Promise()로? 그럼 그냥 new Promise로만 작성하는게 낫겠다.
+
+- google web developer <https://developers.google.com/web/fundamentals/getting-started/primers/promises?hl=ko>
+
+es6에서 var과 let, const 등의 변경사항
+
+## HTML
+
+- id와 class, id는 유니크라게 쓰고, class는 한페이지에 반복적으로 사용되는 스타일을 정의
+- 반복적으로 사용되는 스타일에는 class를 이용하여 정의하고, 그 내부에 세부 스타일을 정의할 때 id를 사용하면 효과적
+- id가 class보다 우선순위가 높다. id는 javascript에서 동적 제어가 가능하지만 class는 그게 안되
